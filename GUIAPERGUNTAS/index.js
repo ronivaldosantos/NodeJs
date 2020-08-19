@@ -16,10 +16,17 @@ app.get("/",(req,res)=>{ //Rota inicial do sistema
     });
 });
 
-//Nova rota para formulário para fazer perguntas.
+//Rota para formulário de perguntas perguntas.
 app.get("/perguntar",(req,res)=>{
     res.render("perguntar");
 })
+
+//Rota para obter dados enviados pelo formulário
+//Essa rota é POST devido o método do FORM ser do tipo POST.
+app.post("/salvarpergunta",(req,res)=>{
+    res.send("Fomulário recebido!");
+})
+
 
 
 
