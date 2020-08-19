@@ -12,16 +12,22 @@
 <body>     
     <!--Container é um recurso do bootstrap para centralizar conteúdo no navegador.-->
     <div class="container"> 
-        <h3>Realizar pergunta</h3>
-        <hr>
-        <form>
-            <label>Título</label>
-            <input type="text" placeholder="Título" class="form-control">
-            <br><label>Descrição</label>
-            <textarea placeholder="Descreva sua pergunta aqui" class="form-control"></textarea>
-            <br>
-            <button class="btn btn-success">perguntar</button>
-        </form>
+        <!--Card é um recurso do bootstrap que dá aparência mais bonita para o formulário.-->
+        <div class="card">
+            <div class="card-header">
+                <h3>Realizar pergunta</h3>
+            </div>
+            <div class="card-body">
+                <form>
+                    <label>Título</label>
+                    <input type="text" placeholder="Título" class="form-control">
+                    <br><label>Descrição</label>
+                    <textarea placeholder="Descreva sua pergunta aqui" class="form-control"></textarea>
+                    <br>
+                    <button class="btn btn-success">perguntar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 
