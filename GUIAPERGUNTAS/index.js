@@ -16,6 +16,13 @@ app.get("/",(req,res)=>{ //Rota inicial do sistema
     });
 });
 
+//Nova rota para formulário para fazer perguntas.
+app.get("/perguntar",(req,res)=>{
+    res.render("perguntar");
+})
+
+
+
 // iniciando o servidor.
 app.listen(8080,()=>{ 
     console.log("App rodando!");
