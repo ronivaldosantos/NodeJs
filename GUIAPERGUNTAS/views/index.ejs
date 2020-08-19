@@ -4,35 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia perguntas</title>
+    <!--lincando ao arquivo css-->
+    <!--Não é necessário colocar a pasta public pois ele á padrão-->
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="stylesheet" href="/css/bootstrap.min.css"> 
 </head>
-<body>
-    <h1>Guia perguntas!</h1>
-    <hr>
-    <h3>Lista de perguntas</h3>
-
-    <!--Obtendo variáveis do js passadas pelo render.-->
-    <p>Nome:<%= nome %></p>
-    <p>Linguagem:<%= lang %></p>
-    <p>Empresa:<%= empresa %></p>
-    <p>Inscritos:<%= inscritos %></p>
-
-    <!--Estrutura condicional dentro do HTML,  função do ejs-->
-    <% if(msg) { %>
-        <h3>Isso é uma mensagem de erro.</h3>
-    <% } else { %>
-        <h3>Execução sem erro.</h3>
-    <% } %>
-
-    <!--Percorrendo um array dentro do HTLM-->
-    <h3>Lista de produtos:</h3>
-    <hr>
-    <% produtos.forEach(function(produto) { %>       
-        <p>
-            <h3> <%= produto.nome %></h3>
-            <h4> <%= produto.preco %></h4>
-        </p>
-    <% }) %>
+<body> 
+    <h1>Estilo do bootstrap</h1>
 
 </body>
-</html>
 
+<!--Dependências necessárias para utilizar o bootstrap-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+<!--Acioana o script JS-->
+<script src="/js/bootstrap.min.js"></script>
+</html>
