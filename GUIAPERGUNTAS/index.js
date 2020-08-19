@@ -1,6 +1,18 @@
 const express = require("express"); // Importando módulo express
 const app = express(); // atribuindo express a uma variável
 const bodyParser = require("body-parser"); //Recebe os dados enviados pelo FORM
+const connection = require('./database/database'); // importando a conecção com o BD.
+
+//Testando conexão com o banco de dados
+connection
+    .authenticate()
+    .then(() =>{
+        console.log('conexão ao BD realizada com sucesso!!!')
+    })
+    .catch((msgErro)=>{
+        console.log(msgErro);
+    })
+
 
 //Informando ao express para utilizar o EJS como View engine, para renderizar html, ou seja desenhar páginas html.
 app.set('view engine','ejs');
