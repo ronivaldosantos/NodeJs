@@ -1,5 +1,6 @@
 const express = require("express"); // Importando módulo express
 const app = express(); // atribuindo express a uma variável
+const bodyParser = require("body-parser"); //Recebe os dados enviados pelo FORM
 
 //Informando ao express para utilizar o EJS como View engine, para renderizar html, ou seja desenhar páginas html.
 app.set('view engine','ejs');
@@ -7,7 +8,11 @@ app.set('view engine','ejs');
 //Defini que a aplicação utilizará arquivos static, pasta padrão é public
 app.use(express.static('public')); 
 
+//Decodifica os dados enviados pelo formulário para estrutura JS
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
+//ROTAS
 // IMPORTANTE: Todo arquivo html ou seja EJS deve estar obrigatóriamente dentro da pasta view.
 app.get("/",(req,res)=>{ //Rota inicial do sistema
 
@@ -24,7 +29,11 @@ app.get("/perguntar",(req,res)=>{
 //Rota para obter dados enviados pelo formulário
 //Essa rota é POST devido o método do FORM ser do tipo POST.
 app.post("/salvarpergunta",(req,res)=>{
-    res.send("Fomulário recebido!");
+
+    var titulo = req.body.titulo;
+    var descricao = req.body.descricao;
+
+    res.send("Fomulário recebido! Titulo: " + titulo + " Descricao: " + descricao);
 })
 
 
