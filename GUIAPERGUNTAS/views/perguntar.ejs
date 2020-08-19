@@ -10,11 +10,18 @@
     <!--Para que as configurações personalizadas do css tenham efeito, deve colocar após carregamento bootstrap.-->
     <link rel="stylesheet" href="/css/style.css"> 
 </head>
-<body>     
+<body> 
+    <!--Colocando a barra de navegação no topo do formulário (Nav do Bootstrap). -->
+    <nav class="navbar navbar-light bg-primary">
+        <a class="navbar-brand" href="/">
+            <img src="/img/guia.png">
+        </a>
+    </nav>
+
     <!--Container é um recurso do bootstrap para centralizar conteúdo no navegador.-->
     <div class="container"> 
         <!--Card é um recurso do bootstrap que dá aparência mais bonita para o formulário.-->
-        <div class="card">
+        <div class="card" id="formulario-pergunta">
             <div class="card-header">
                 <h3>Realizar pergunta</h3>
             </div>
@@ -25,7 +32,7 @@
                     <br><label>Descrição</label>
                     <textarea placeholder="Descreva sua pergunta aqui" class="form-control"></textarea>
                     <br>
-                    <button class="btn btn-success">perguntar</button>
+                    <button class="btn btn-primary">perguntar</button>
                 </form>
             </div>
         </div>
