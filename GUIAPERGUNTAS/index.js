@@ -29,9 +29,11 @@ app.use(bodyParser.json());
 // IMPORTANTE: Todo arquivo html ou seja EJS deve estar obrigatóriamente dentro da pasta view.
 app.get("/",(req,res)=>{ //Rota principal inicial  do sistema
  
-    //Obtem todas as perguntas cadastradas no BD.
+    //Obtem todas as perguntas cadastradas no BD ordenados decrescente.
     // O JSON raw:true informa que trará somente os registros da tabela.
-    Pergunta.findAll({raw: true}).then(perguntas =>{
+    Pergunta.findAll({raw: true,order:[
+        ['id','DESC']
+    ]}).then(perguntas =>{
 
         // chama arquivo .ejs e renderiza na tela para o usuário. render vai direto na pasta views, para express
         res.render("index",{
