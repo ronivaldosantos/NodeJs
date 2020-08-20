@@ -16,3 +16,5 @@ const pergunta = connection.define('perguntas',{
 
 //Caso não exista a tabela no BD a mesma é criada.
 pergunta.sync({force: false}).then(()=>{});
+
+module.exports = pergunta;

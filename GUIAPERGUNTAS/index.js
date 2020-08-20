@@ -2,7 +2,7 @@ const express = require("express"); // Importando módulo express
 const app = express(); // atribuindo express a uma variável
 const bodyParser = require("body-parser"); //Recebe os dados enviados pelo FORM
 const connection = require('./database/database'); // importando a conecção com o BD.
-const perguntaModel = require("./database/Pergunta"); // Importando a criação da tabela.
+const pergunta = require("./database/Pergunta"); // Importando a criação da tabela.
 
 //Testando conexão com o banco de dados
 connection
@@ -46,8 +46,15 @@ app.post("/salvarpergunta",(req,res)=>{
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
 
-    res.send("Fomulário recebido! Titulo: " + titulo + " Descricao: " + descricao);
-})
+    //Salvando dados do formulário no BD equivalente ao Insert Into
+    pergunta.create({
+        titulo: titulo,
+        descricao: descricao
+    // Após a inserção dos dados redireciona para a página principal
+    }).then(()=>{
+        res.redirect("/");
+    });    
+});
 
 
 
