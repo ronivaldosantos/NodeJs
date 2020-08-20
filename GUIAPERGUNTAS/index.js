@@ -25,23 +25,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-//ROTAS
-// IMPORTANTE: Todo arquivo html ou seja EJS deve estar obrigatóriamente dentro da pasta view.
-app.get("/",(req,res)=>{ //Rota principal inicial  do sistema
- 
-    //Obtem todas as perguntas cadastradas no BD ordenados decrescente.
-    // O JSON raw:true informa que trará somente os registros da tabela.
-    Pergunta.findAll({raw: true,order:[
-        ['id','DESC']
-    ]}).then(perguntas =>{
-
-        // chama arquivo .ejs e renderiza na tela para o usuário. render vai direto na pasta views, para express
-        res.render("index",{
-            perguntas:perguntas // Envia array com registros do BD para a página Index.ejs
-        });    
-
-    });
-});
+//************** ROTAS *******************
 
 //Rota para formulário de perguntas perguntas.
 app.get("/perguntar",(req,res)=>{
@@ -65,6 +49,37 @@ app.post("/salvarpergunta",(req,res)=>{
     });    
 });
 
+// IMPORTANTE: Todo arquivo html ou seja EJS deve estar obrigatóriamente dentro da pasta view.
+app.get("/",(req,res)=>{ //Rota principal inicial  do sistema
+ 
+    //Obtem todas as perguntas cadastradas no BD ordenados decrescente.
+    // O JSON raw:true informa que trará somente os registros da tabela.
+    Pergunta.findAll({raw: true,order:[
+        ['id','DESC']
+    ]}).then(perguntas =>{
+
+        // chama arquivo .ejs e renderiza na tela para o usuário. render vai direto na pasta views, para express
+        res.render("index",{
+            perguntas:perguntas // Envia array com registros do BD para a página Index.ejs
+        });    
+
+    });
+});
+
+app.get("/pergunta/:id",(req,res)=>{
+    var id = req.params.id;
+    Pergunta.findOne({
+        where: {id: id}
+    }).then( pergunta => {
+        if (pergunta != undefined){
+            res.render("pergunta",{
+                pergunta: pergunta
+            });
+        }else{
+            res.redirect("/");
+        }
+    });
+});
 
 
 
