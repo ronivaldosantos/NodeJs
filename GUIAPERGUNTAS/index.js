@@ -2,6 +2,7 @@ const express = require("express"); // Importando módulo express
 const app = express(); // atribuindo express a uma variável
 const bodyParser = require("body-parser"); //Recebe os dados enviados pelo FORM
 const connection = require('./database/database'); // importando a conecção com o BD.
+const perguntaModel = require("./database/Pergunta"); // Importando a criação da tabela.
 
 //Testando conexão com o banco de dados
 connection
