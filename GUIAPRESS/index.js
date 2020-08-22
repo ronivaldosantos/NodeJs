@@ -4,6 +4,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 
+//Importando Rotas
+const categoriesController = require("./categories/CategoriesController");
+const articlesController = require("./articles/ArticlesController");
+
+//Importando Models
+const Articles = require('./articles/Article');
+const Category = require('./categories/Category');
 
 // View engine
 app.set('view engine','ejs');
@@ -24,6 +31,10 @@ connection
     }).catch((error) =>{
         console.log(error);
     })
+
+//Informando pra aplicação quais rotas utilizar.
+app.use("/",categoriesController);
+app.use("/",articlesController);
 
 //criando rota principal
 app.get("/",(req,res) => {
