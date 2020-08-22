@@ -14,6 +14,6 @@ const Category = connection.define('categories',{
 })
 
 //Sincronizando no BD.
-Category.sync({force:true});
+//Category.sync({force:true});
 
 module.exports = Category;

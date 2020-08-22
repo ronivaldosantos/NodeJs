@@ -29,6 +29,6 @@ Category.hasMany(Article);
 Article.belongsTo(Category);
 
 //Sincronizando no BD.
-Article.sync({force:true});
+//Article.sync({force:true});
 
 module.exports = Article;
