@@ -24,4 +24,9 @@ router.post("/categories/save",(req,res)=>{
     }
 });
 
+//Rota para listar categorias cadastradas
+router.get("/admin/categories",(req,res)=>{
+    res.render("admin/categories/index");
+});
+
 module.exports = router;
