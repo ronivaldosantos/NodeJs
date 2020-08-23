@@ -26,7 +26,13 @@ router.post("/categories/save",(req,res)=>{
 
 //Rota para listar categorias cadastradas
 router.get("/admin/categories",(req,res)=>{
-    res.render("admin/categories/index");
+
+    //Buscando dados BD
+    Category.findAll().then(categories =>{        
+        res.render("admin/categories/index",{categories:categories});
+    })
+
+
 });
 
 module.exports = router;
